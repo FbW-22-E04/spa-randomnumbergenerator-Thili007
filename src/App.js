@@ -14,6 +14,9 @@ export default function App() {
   const getRandomNum = () => {
     setRandomNum(Math.floor(Math.random() * 255));
   };
+  const deleteNum = (num) => {
+    setNumList(numList.filter((item) => item !== num));
+  };
 
   return (
     <div className="main-container">
@@ -31,7 +34,9 @@ export default function App() {
         {numList.map((e, key) => (
           <div className="numList" key={key}>
             <p>{e}</p>
-            <button className="close-btn">X</button>
+            <button onClick={() => deleteNum(e)} className="close-btn">
+              X
+            </button>
           </div>
         ))}
       </div>
